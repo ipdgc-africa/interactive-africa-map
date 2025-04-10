@@ -186,40 +186,6 @@
     tooltip.style.display = "none";
   }
 
-  window.addEventListener('resize', adjustSvgSize);
-
-function adjustSvgSize() {
-  const svgContainer = document.querySelector('.svg-container');
-  const svg = svgContainer.querySelector('svg');
-  
-  // Get the aspect ratio of the SVG based on its viewBox
-  const aspectRatio = svg.viewBox.baseVal.width / svg.viewBox.baseVal.height;
-  
-  // Calculate the new width and height based on the window size
-  const windowWidth = window.innerWidth;
-  const windowHeight = window.innerHeight;
-  
-  // Set the width and height based on the aspect ratio
-  let newWidth = windowWidth;
-  let newHeight = windowHeight;
-
-  // Adjust the width and height while maintaining the aspect ratio
-  if (windowWidth / aspectRatio > windowHeight) {
-    newWidth = windowHeight * aspectRatio;
-  } else {
-    newHeight = windowWidth / aspectRatio;
-  }
-
-  // Apply the new width and height to the SVG container and SVG itself
-  svgContainer.style.width = `${newWidth}px`;
-  svgContainer.style.height = `${newHeight}px`;
-  svg.style.width = '100%';
-  svg.style.height = '100%';
-}
-
-// Initial adjustment when the page loads
-adjustSvgSize();
-
 
 </script>
 </body>
